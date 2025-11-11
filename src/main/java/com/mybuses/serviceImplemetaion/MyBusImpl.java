@@ -125,10 +125,74 @@ public class MyBusImpl implements ServiceIntr{
 		
 	}
 
+	@Override
+	public boolean frogotpass(String emailOrphone) {		
+		boolean found = false;
+			try {
+			    Class.forName("com.mysql.cj.jdbc.Driver");
+			    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/b190","root","root");
+			    String  emailOrpass="select password from pasangerdetails where  email=? or number=?";
+			     
+			    
+			    PreparedStatement pst=con.prepareStatement(emailOrpass);
+			                      pst.setString(1, emailOrphone);
+			                      pst.setString(2, emailOrphone);
+			    ResultSet rs=pst.executeQuery();
+			    
+			    if(rs.next()) {
+			    	found= true;
+			    	
+			    }
+			    
+			    pst.close();
+			    rs.close();
+			    con.close();
+			    
+			 }catch (Exception e) {
+				 
+			    System.out.println("Incorrect Pass");
+			    
+			 }
+		return found;
+	}
+
  
+	public boolean UpdatePass(String emailOrphone, String updatepass) {
+		
+		boolean update=false;
+		
+		try {
+		    Class.forName("com.mysql.cj.jdbc.Driver");;
+		    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/b190","root","root");
+		    String  updatePassw="update pasangerdetails set password=? where email=? or number=?";
+		     
+		    
+		    PreparedStatement pst=con.prepareStatement( updatePassw);
+		                      pst.setString(1,  updatepass);
+		                      pst.setString(2, emailOrphone);
+		                      pst.setString(3, emailOrphone);
+		                 int row = pst.executeUpdate();
+		    
+		     if(row>0) {
+		    	
+		    	update= true;
+		    	System.out.println("The password is up to date please remember your password ");
+		     }else{
+
+		    	 System.out.println("Your password is not set Please try again letter");
+		     }
+		 }catch (Exception e) {
+			 
+		    System.out.println("Incorrect Pass");
+		    
+		 }
+		
+		return update;
+		
+	}
 //======================================================================================================================================	 
 	 
 	
 	
-
+	
 }

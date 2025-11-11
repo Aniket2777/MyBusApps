@@ -169,6 +169,7 @@
 
 <body>
 
+
   <!-----------------------------------------navigation bar------------ -->
   <div class="navbar">
     <a class="nav-title" href="#">MY BUS</a>
@@ -198,7 +199,7 @@
     </form>
 
     <div class="helper">
-      <a href="forgotPage">Forgot Password?</a>
+      <a href="forgotPass.jsp">Forgot Password?</a>
     </div>
 
     <div class="helper">

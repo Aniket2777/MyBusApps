@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
- 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -87,15 +85,9 @@
     	response.sendRedirect("loginpage.jsp");
     } 
 %>
-<h1 style="color:red">vehicle details</h1>
-  
-    <c:forEach items="${search}" var="v">
-      <p><strong>Bus No:</strong> ${v.busNumber}</p>
-    <p><strong>From:</strong> ${v.arrivingPoint}</p>
-    <p><strong>To:</strong> ${v.destination}</p>
-    <p><strong>Time:</strong> ${v.time}</p>
-    <hr>
-</c:forEach>
- 
+
+        <h3 style="color:red">Password Update Successfully......</h3> 
+       <h4 style="text-align: inherit;"><button style="background-color: orange"><a href="loginpage.jsp">Go for Login</a></button></h4>
+
 </body>
 </html>

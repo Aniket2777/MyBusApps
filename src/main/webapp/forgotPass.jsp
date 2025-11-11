@@ -80,21 +80,17 @@
     </nav>
   </header>
 <body>
-<form action="ForgotPassword">
+ 
 
+
+<form action="ForgotPassword" method="get">
 <!--  ---------------------------------------------------------------------------- -->
-<% 
-    if(session.getAttribute("username")==null){
-    	response.sendRedirect("loginpage.jsp");
-    } 
-%>
-
+ 
 Fill This Field:<input type="text" name="emilOrphone" placeholder="Enter Register Email or Password">
 
-<marque><h6 style="color: red">Coming Soon.....</h6></marque>
 
-
-
+Fill This Field:<input type="text" name="updatepass" placeholder="Enter Your Updated PassWord">
+<input type="submit" value="submit">
 </form>
 </body>
 </html>

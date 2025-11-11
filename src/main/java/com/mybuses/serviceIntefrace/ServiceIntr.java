@@ -16,7 +16,7 @@ public interface ServiceIntr {
 	
 	public void saveData();
 	
-// boolean frogotpass(String emailOrphone);
+ boolean frogotpass(String emailOrphone);
 	
 	
 	

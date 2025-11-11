@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -39,9 +40,7 @@ public class registerControler extends HttpServlet {
 		if(fullname!=null && username!=null && email!=null && age!=0 && number!=0 && password!=null)
 		{
 			
-			
-			 
-			
+						
 			
 		 try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -59,6 +58,8 @@ public class registerControler extends HttpServlet {
 			                   
 			    pst.executeUpdate();
 			    con.close();
+			    
+			    
 			 
 		} catch (Exception e) {
 			 System.out.println("Not Register....");
@@ -72,8 +73,8 @@ public class registerControler extends HttpServlet {
 			
 			System.out.println("Enter full details");
 		}
-			
-		 
+			PrintWriter out=response.getWriter();
+		                out.println("Registration Completed");
 		}
 		
 	}
